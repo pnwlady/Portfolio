@@ -13,4 +13,84 @@
         <script id="article-template" type="text/x-handlebars-template">
             <article
                 class="clearfix"
-                data-author={{authorSlug}}"">
+                data-author="{{authorSlug}}"
+                data-category="{{categorySlug}}">
+                <header>
+                    <h1>{{title}}</h1>
+                    <div class="byline">
+                        By <address><a href="{{authorUrl}}">{{author}}</a></address>
+                        {{publishStatus}}
+                    </div>
+                </header>
+                <section class="article-body">{{body}}</section>
+                <a href="#" class="read-on">Read on &rarr;</a>
+            </article>
+        </script>
+    </head>
+    <body>
+        <header class="site-header clearfix">
+            <section class="heading-group-h1">
+                <h1>
+                    Heidi's Blog
+                </h1>
+                <h2>The shocking power of static pages</h2>
+            </section>
+            <nav class="main-nav">
+                <div class="icon-menu"></div>
+                <ul>
+                    <li class="tab" data-content="articles"><a href="#" class="icon-home">Home</a></li>
+                    <li class="tab" data-content="about"><a href="#" class="icon-address-book">About</a></li>
+                    <li class="tab" data-content="contact"><a href="#" class="icon-contact"></a></li>
+                    <li><a href="http://twitter.com/pnwlady" target="_blank" class="icon-twitter">Twitter</a></li>
+                    <li><a href="http://github.com/pnwlady" target="_blank" class="icon-github">GitHub</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section id="articles" class="tab-content">
+                <div>
+                    <ul id="filters">
+                        <li>
+                            <select id="author-filter">
+                                <option value="">-- Filter by Authors --</option>
+                            </select>
+                        </li>
+                        <li>
+                            <select id="category-filter">
+                                <option value="">-- Filter by Categories --</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section id="about" class="tab-content">
+                <header>
+                    Welcome to my blog
+                </header>
+                <section>
+                    <h1>Some of my iterests:</h1>
+                    <ul>
+                        <li>Coding</li>
+                        <li>Learning</li>
+                        <li>Making stuff</li>
+                        <li>Walking outside</li>
+                    </ul>
+                </section>
+            </section>
+        </main>
+        <footer>
+            &copy; 2015 Heidi Laursen | Static Blog | Happy Ipsum!
+        </footer>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
+        <script src="script/util.js"></script>
+        <script src="script/article.js"></script>
+        <script src="script/blog.js"></script>
+        <script src="script/blogArticles.js"></script>
+        <script src="script/index.js"></script>
+        <script src="vendor/script/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>
