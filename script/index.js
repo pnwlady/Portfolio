@@ -1,15 +1,15 @@
 $(function() {
-    //Set up blog with raw data
+    //set up blog with raw data
     blog.sortArticles();
     blog.importArticles();
 
-    //Load articles into blogging system
+    //load articles into blogging system
     blog.articles.forEach(blog.appendArticle);
 
-    //After lead-in paragraph hide all else, add read-on button
+    //after 1st paragraph, set read-on feature
     blog.setTeasers();
 
-    //Add behaviors
+    //add behaviors
     blog.populateFilters();
     blog.handleAuthorFilter();
     blog.handleCategoryFilter();
