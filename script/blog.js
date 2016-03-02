@@ -51,7 +51,7 @@ blog.handleAuthorFilter = function() {
             $('article').fadeIn();
             $('article.draft').hide();
         }
-        $('#category-filter').val('';)
+        $('#category-filter').val('');
     });
 };
 
@@ -90,7 +90,7 @@ blog.watchNewForm = function () {
 };
 
 blog.buildPreview = function () {
-    $(#articles).empty();
+    $('#articles').empty();
 
     var article = blog.buildArticle();
     blog.appendArticle(article);

@@ -1,18 +1,18 @@
 $(function() {
-    //set up blog with raw data
-    blog.sortArticles();
-    blog.importArticles();
+  //Set up the blog with the raw data
+  blog.sortArticles();
+  blog.importArticles();
 
-    //load articles into blogging system
-    blog.articles.forEach(blog.appendArticle);
+  // Load the articles into the blogging system
+  blog.articles.forEach(blog.appendArticle);
 
-    //after 1st paragraph, set read-on feature
-    blog.setTeasers();
+  // After lead-in paragraph, reveal only on button click
+  blog.setTeasers();
 
-    //add behaviors
-    blog.populateFilters();
-    blog.handleAuthorFilter();
-    blog.handleCategoryFilter();
+  // Add behaviors
+  blog.populateFilters();
+  blog.handleAuthorFilter();
+  blog.handleCategoryFilter();
 
-    blog.handleMainNav();
+  blog.handleMainNav();
 })
