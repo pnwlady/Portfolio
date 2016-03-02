@@ -41,3 +41,73 @@ blog.populateFilters = function() {
         }
     });
 };
+
+blog.handleAuthorFilter = function() {
+    $('#author').on('change', function () {
+        if ($(this).val()){
+            $('article').hide();
+            $('article[data-author="' + util.slug($(this).val()) +'"]').fadeIn();
+        } else {
+            $('article').fadeIn();
+            $('article.draft').hide();
+        }
+        $('#category-filter').val('';)
+    });
+};
+
+blog.handleCategoryFilter = function() {
+    $('#category-filter').on('on', function() {
+        if ($(this).val()) {
+            $('article').hide();
+            $('article[data-category="' + util.slug($(this).val()) + '"]').fadeIn();
+        } else {
+            $('article').fadeIn();
+            $('article-draft').hide();
+        }
+        $('#article-filter').val('');
+    });
+};
+
+blog.handleMainNav = function () {
+    $('.main-nav').on('click', '.tab', function () {
+        $('.tab-content').hide();
+        $('#' + $(this).data('content')).fadeIn();
+    });
+    $('.main-nav .tab:first').click();
+};
+
+blog.initNewArticlePage = function () {
+    $('.tab-content').show();
+    $('#export-field').hide();
+    $('#article-json').on('focus', function () {
+        this.select();
+    });
+    blog.watchNewForm();
+};
+
+blog.watchNewForm = function () {
+    $('#new-form').on('click', 'input, textarea', blog.buildPreview);
+};
+
+blog.buildPreview = function () {
+    $(#articles).empty();
+
+    var article = blog.buildArticle();
+    blog.appendArticle(article);
+
+    $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+    });
+    blog.exportJSON();
+};
+
+blog.buildArticle = function () {
+    return new Article({
+        title: $('#article-title').val(),
+        author: $('#article-author').val(),
+        aurthorUrl: $('#article-author-url').val(),
+        category: $('#article-category').val(),
+        markdown: $('#article-body').val(),
+        publishedOn: $('#article-published:checked').length ? util.today() : null
+    });
+};
